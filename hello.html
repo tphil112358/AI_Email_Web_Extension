@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aegis One</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <header>
+        <h1>Aegis One</h1>
+        <p class="subtitle">Smart Email Assistant</p>
+    </header>
+
+    <main>
+        <section id="message">
+            <p class="placeholder">Checking Gmail page...</p>
+        </section>
+
+        <section id="controls" class="hidden">
+            <button id="summarizeBtn">Summarize</button>
+            <button id="scanSpamBtn">Scan for Spam</button>
+
+            <div id="threatStatus" class="status neutral">
+                <p>Scanning...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>2025 Aegis One</p>
+    </footer>
+
+    <script src="popup.js"></script>
+</body>
+</html>

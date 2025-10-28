@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Aegis One",
+  "description": "Gmail Assistant: Spam & Phishing Detection, Smart Summaries",
+  "version": "0.3",
+  "permissions": [ "activeTab", "scripting", "tabs" ],
+  "host_permissions": [ "https://mail.google.com/*" ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "xinuit.png"
+  },
+  "icons": {
+    "128": "xinuit.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [ "https://mail.google.com/*" ],
+      "js": [ "content.js" ],
+      "run_at": "document_idle"
+    }
+  ]
+}

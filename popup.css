@@ -1,0 +1,94 @@
+body {
+    width: 320px;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    background-color: #0e1116;
+    color: #e5e5e5;
+}
+
+header {
+    text-align: center;
+    padding: 1rem;
+    background: #1c1f26;
+    border-bottom: 1px solid #2d2f36;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #66b2ff;
+}
+
+.subtitle {
+    font-size: 0.8rem;
+    color: #a0a0a0;
+    margin-top: 4px;
+}
+
+main {
+    padding: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    width: 100%;
+    padding: 0.6rem;
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    color: #e2e8f0;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 0.5rem;
+}
+
+    button:hover:not(:disabled) {
+        background-color: #2563eb;
+        color: white;
+    }
+
+    button:disabled {
+        opacity: 0.5;
+        cursor: default;
+    }
+
+#threatStatus {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.status.neutral {
+    background-color: #1c1f26;
+    color: #9ca3af;
+}
+
+.status.safe {
+    background-color: #14532d;
+    color: #a7f3d0;
+}
+
+.status.warning {
+    background-color: #78350f;
+    color: #fcd34d;
+}
+
+.status.danger {
+    background-color: #7f1d1d;
+    color: #fecaca;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.7rem;
+    padding: 0.5rem;
+    border-top: 1px solid #2d2f36;
+    background: #1c1f26;
+    color: #666;
+}
