@@ -3,8 +3,8 @@
   "name": "Aegis One",
   "description": "Gmail Assistant: Spam & Phishing Detection, Smart Summaries",
   "version": "0.3",
-  "permissions": [ "activeTab", "scripting", "tabs" ],
-  "host_permissions": [ "https://mail.google.com/*" ],
+  "host_permissions": ["http://localhost:11434/*", "https://mail.google.com/*"],
+  "permissions": [ "activeTab", "scripting", "tabs", "storage" ],
   "background": {
     "service_worker": "background.js"
   },

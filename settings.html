@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Aegis One - Settings</title>
+    <style>
+        body {
+            width: 500px;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #0d1117;
+            color: #e6edf3;
+            padding: 20px;
+            margin: 0;
+        }
+
+        header {
+            border-bottom: 2px solid #21262d;
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #58a6ff;
+            margin: 0 0 8px 0;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: #8b949e;
+            margin: 0;
+        }
+
+        .section {
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #e6edf3;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: "⚙️";
+            margin-right: 8px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #8b949e;
+            margin-bottom: 6px;
+        }
+
+        select, input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #e6edf3;
+            font-size: 14px;
+            font-family: inherit;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #58a6ff;
+            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1);
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .provider-info {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 12px;
+            margin-top: 12px;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .provider-info.hidden {
+            display: none;
+        }
+
+        .provider-info strong {
+            color: #58a6ff;
+        }
+
+        .provider-info a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        .provider-info a:hover {
+            text-decoration: underline;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #21262d;
+        }
+
+        button {
+            flex: 1;
+            border: 1px solid #58a6ff;
+            border-radius: 6px;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            background-color: #161b22;
+            color: #58a6ff;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background-color: #58a6ff;
+            color: #0d1117;
+            box-shadow: 0 0 8px rgba(88, 166, 255, 0.5);
+        }
+
+        button:disabled {
+            background-color: #21262d;
+            color: #484f58;
+            border-color: #30363d;
+            cursor: not-allowed;
+        }
+
+        button.primary {
+            background-color: #238636;
+            border-color: #238636;
+            color: #ffffff;
+        }
+
+        button.primary:hover {
+            background-color: #2ea043;
+            box-shadow: 0 0 8px rgba(46, 160, 67, 0.5);
+        }
+
+        .status-message {
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 16px;
+            font-size: 13px;
+            font-weight: 500;
+            text-align: center;
+            display: none;
+        }
+
+        .status-message.success {
+            background-color: #1a2f1a;
+            border: 1px solid #238636;
+            color: #7ee787;
+        }
+
+        .status-message.error {
+            background-color: #2f1a1a;
+            border: 1px solid #da3633;
+            color: #ff7b72;
+        }
+
+        .status-message.visible {
+            display: block;
+        }
+
+        .test-connection {
+            margin-top: 12px;
+        }
+
+        .test-connection button {
+            width: auto;
+            padding: 8px 16px;
+            font-size: 12px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 11px;
+            color: #6e7681;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #21262d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>⚙️ Aegis One Settings</h1>
+        <p class="subtitle">Configure AI provider and preferences</p>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="section-title">AI Provider Configuration</div>
+            
+            <div class="form-group">
+                <label for="aiProvider">AI Provider</label>
+                <select id="aiProvider">
+                    <option value="ollama">Ollama (Local - Free)</option>
+                    <option value="groq">Groq (Fast & Free)</option>
+                    <option value="together">Together.ai</option>
+                    <option value="openai">OpenAI</option>
+                    <option value="anthropic">Anthropic (Claude)</option>
+                </select>
+            </div>
+
+            <!-- Provider-specific info boxes -->
+            <div id="info-ollama" class="provider-info">
+                <strong>Ollama (Local)</strong><br>
+                • No API key required<br>
+                • Requires Ollama installed locally<br>
+                • Download from: <a href="https://ollama.ai" target="_blank">ollama.ai</a><br>
+                • Privacy: Data stays on your machine
+            </div>
+
+            <div id="info-groq" class="provider-info hidden">
+                <strong>Groq</strong><br>
+                • Free tier: 14,400 requests/day<br>
+                • Extremely fast inference<br>
+                • Get API key: <a href="https://console.groq.com" target="_blank">console.groq.com</a><br>
+                • Models: Llama 3.1, Mixtral
+            </div>
+
+            <div id="info-together" class="provider-info hidden">
+                <strong>Together.ai</strong><br>
+                • Free credits: $25 on signup<br>
+                • Wide model selection<br>
+                • Get API key: <a href="https://api.together.xyz" target="_blank">api.together.xyz</a><br>
+                • Models: Llama, Mistral, and more
+            </div>
+
+            <div id="info-openai" class="provider-info hidden">
+                <strong>OpenAI</strong><br>
+                • Pay-as-you-go pricing<br>
+                • GPT-4, GPT-3.5 models<br>
+                • Get API key: <a href="https://platform.openai.com" target="_blank">platform.openai.com</a><br>
+                • Most expensive option
+            </div>
+
+            <div id="info-anthropic" class="provider-info hidden">
+                <strong>Anthropic (Claude)</strong><br>
+                • Pay-as-you-go pricing<br>
+                • Claude 3 models<br>
+                • Get API key: <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a><br>
+                • Good for complex reasoning
+            </div>
+
+            <div class="form-group" id="apiKeyGroup">
+                <label for="apiKey">API Key</label>
+                <input type="password" id="apiKey" placeholder="Enter your API key">
+            </div>
+
+            <div class="test-connection">
+                <button id="testConnection">Test Connection</button>
+            </div>
+        </section>
+
+        <div id="statusMessage" class="status-message"></div>
+
+        <div class="button-group">
+            <button id="cancelBtn">Cancel</button>
+            <button id="saveBtn" class="primary">Save Settings</button>
+        </div>
+    </main>
+
+    <footer>
+        Aegis One © 2025
+    </footer>
+
+    <script src="settings.js"></script>
+</body>
+</html>

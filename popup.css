@@ -84,6 +84,47 @@ button {
     color: #fecaca;
 }
 
+/* Security window styles */
+.security {
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 13px;
+    color: #e5e5e5;
+    display: block;
+}
+
+.security .security-title {
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #cbd5e1;
+}
+
+/* Neutral (normal) — gray base */
+.security.neutral {
+    background-color: #111827; /* dark gray */
+    color: #cbd5e1;
+}
+
+/* Warning — yellow-tinted gray */
+.security.warning {
+    background-color: #2b2a22; /* slightly warm gray */
+    color: #f6e6b3; /* light warm text */
+    box-shadow: inset 0 1px 0 rgba(250,204,21,0.04);
+}
+
+/* Alert — red-tinted gray */
+.security.alert, .security.danger {
+    background-color: #2b1f20; /* slightly red-tinged gray */
+    color: #fecaca;
+    box-shadow: inset 0 1px 0 rgba(255,99,99,0.04);
+}
+
+.security-body {
+    font-size: 13px;
+    line-height: 1.4;
+    white-space: pre-wrap;
+}
+
 footer {
     text-align: center;
     font-size: 0.7rem;
